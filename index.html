@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELO / Design Philosophy & Strategy</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to match the DELO brand identity */
+        body {
+            background-color: #000000;
+            color: #F3F4F6; /* Off-white for better readability */
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Using a bold, expressive font for headings to capture the 'Benzin' font feel */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Dela Gothic One', cursive;
+            letter-spacing: -0.02em;
+        }
+
+        /* Abstract, vibrant background SVG to keep the original style */
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 800'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff00c1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%239933ff;stop-opacity:1' /%3E%3C/linearGradient%3E%3ClinearGradient id='grad2' x1='100%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffc700;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2332e1a2;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cg style='mix-blend-mode: screen;'%3E%3Crect width='100%25' height='100%25' fill='black' /%3E%3Ccircle cx='50%25' cy='50%25' r='35%25' fill='url(%23grad1)' transform='rotate(15 720 400) scale(1.2)'/%3E%3Cpath d='M0 800 C 400 800, 400 400, 800 400 S 1200 0, 1440 0 V 800 Z' fill='url(%23grad2)' transform='scale(1.1) translate(-50, 20)' /%3E%3C/g%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            filter: blur(100px);
+        }
+
+        .section-glow {
+            position: relative;
+        }
+        
+        .section-glow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 60%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(235, 77, 77, 0.08) 0%, rgba(235, 77, 77, 0) 70%);
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .process-step {
+            border-left: 2px solid #4B5563; /* Gray border */
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .process-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: -1.25rem;
+            top: -0.25rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            background-color: #EB4D4D; /* Accent color */
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Dela Gothic One', cursive;
+            font-size: 1rem;
+        }
+
+        /* Custom styling for the buttons to make them stand out */
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(235, 77, 77, 0);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(235, 77, 77, 0.4);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="p-4 sm:p-6 lg:p-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold tracking-tighter" style="font-family: 'Dela Gothic One', cursive;">
+                DELO
+            </a>
+            <a href="#contact" class="hidden sm:inline-block bg-[#EB4D4D] text-black font-bold py-3 px-6 rounded-full text-sm cta-button">
+                Begin the Conversation
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main class="px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Hero Section -->
+            <section class="relative min-h-[70vh] flex items-center justify-center text-center py-20 sm:py-32">
+                <div class="hero-background"></div>
+                <div class="relative z-10">
+                    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tighter mb-6 leading-tight">Beyond the Portfolio.</h1>
+                    <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300">
+                        We deliver the strategic understanding that shapes every asset you will ever build.
+                    </p>
+                </div>
+            </section>
+
+            <!-- The Problem Section -->
+            <section class="py-20 sm:py-32 section-glow" id="problem">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold">Is Your Vision Lost in Translation?</h2>
+                    <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+                        This is the gap between a clear business strategy and a product that feels disconnected. It manifests in two ways:
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-16">
+                    <div class="bg-gray-900/50 p-8 rounded-2xl border border-gray-800">
+                        <h3 class="text-2xl font-bold mb-4">For the Founder</h3>
+                        <p class="text-gray-300">
+                            You have the vision, but you sense a disconnect between your strategy and what the design team delivers. The execution is competent, but the soul is missing. You don't just need more designers; you need a strategic thinker to translate your core purpose into a guiding philosophy.
+                        </p>
+                    </div>
+                    <div class="bg-gray-900/50 p-8 rounded-2xl border border-gray-800">
+                        <h3 class="text-2xl font-bold mb-4">For the Design Lead</h3>
+                        <p class="text-gray-300">
+                            You are a master of your craft, but you feel you're solving tickets instead of shaping the vision. You aspire to move from expert execution to defining the fundamental 'why' behind the design.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- The Philosophy Section -->
+            <section class="py-20 sm:py-32 text-center section-glow" id="philosophy">
+                <h2 class="text-4xl sm:text-5xl font-bold mb-6">The Why Behind The What.</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-300 mb-16">
+                    We believe every UI detail is a doorway to history, technology, and psychology. Our approach is that of a "design anthropologist"—we don't just solve problems, we uncover the hidden forces that shape them to build a resilient design philosophy that lasts.
+                </p>
+
+                <h3 class="text-3xl font-bold mb-8">Our Thinking in Action.</h3>
+                <!-- YouTube video embed. Replace the src with your actual video URL -->
+                <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-2xl border border-gray-800">
+                    <iframe src="https://www.youtube.com/embed/5Tx-v9-H_v0?si=p7y3P9331G-w_K3z" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <!-- The Process Section -->
+            <section class="py-20 sm:py-32 section-glow" id="process">
+                 <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold">The Deep Dive.</h2>
+                     <p class="mt-4 text-gray-400 max-w-2xl mx-auto">A Fundamental Design Strategy Engagement. Our process is singular and focused to yield foundational clarity.</p>
+                </div>
+                <div class="space-y-16">
+                    <div class="process-step" data-step="1">
+                        <h4 class="text-2xl font-bold mb-2">IMMERSION</h4>
+                        <p class="text-gray-300">We spend weeks, not hours, dissecting your product, market, users, and internal culture. We read what your team reads, talk to your key people, and become your most dedicated user to understand your world from the inside out.</p>
+                    </div>
+                    <div class="process-step" data-step="2">
+                        <h4 class="text-2xl font-bold mb-2">SYNTHESIS</h4>
+                        <p class="text-gray-300">We connect the dots between your business goals, user psychology, and emerging cultural trends. From this synthesis, we formulate a unique, actionable Design Philosophy that serves as the strategic core for your product.</p>
+                    </div>
+                    <div class="process-step" data-step="3">
+                        <h4 class="text-2xl font-bold mb-2">STRATEGY & ROADMAP</h4>
+                        <p class="text-gray-300">Our deliverable is not a set of screens but a strategic document. It’s a clear, powerful roadmap that aligns your team, guides all future design decisions, and becomes your North Star for innovation and growth.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Target Audience Section -->
+            <section class="py-20 sm:py-32 section-glow" id="audience">
+                <div class="bg-gray-900/50 p-8 sm:p-12 rounded-2xl border border-gray-800">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-8 text-center">This engagement is for you if...</h2>
+                    <ul class="space-y-4 max-w-2xl mx-auto">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-[#EB4D4D] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-300">You are a Founder, CEO, or Product Lead preparing for a major redesign, new product launch, or market entry.</span>
+                        </li>
+                        <li class="flex items-start">
+                             <svg class="w-6 h-6 text-[#EB4D4D] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-300">You are a leader who understands that <strong class="text-white">design *is* how it works.</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                             <svg class="w-6 h-6 text-[#EB4D4D] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-300">You value intellectual rigor and seek a strategic partner who will challenge your assumptions.</span>
+                        </li>
+                         <li class="flex items-start">
+                             <svg class="w-6 h-6 text-[#EB4D4D] mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-300">You see design as a long-term strategic investment, not a short-term cost.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- About the Founder Section -->
+            <section class="py-20 sm:py-32 flex flex-col md:flex-row items-center gap-12 lg:gap-16 section-glow" id="about">
+                 <!-- Placeholder for founder photo -->
+                <div class="md:w-1/3 flex-shrink-0">
+                    <img src="https://placehold.co/400x400/111827/EB4D4D?text=IW" alt="Portrait of Ilia Werner" class="rounded-full w-48 h-48 sm:w-64 sm:h-64 mx-auto md:mx-0 object-cover border-4 border-gray-800">
+                </div>
+                <div class="md:w-2/3 text-center md:text-left">
+                    <h2 class="text-4xl sm:text-5xl font-bold mb-4">Ilia Werner</h2>
+                    <p class="text-xl text-[#EB4D4D] font-medium mb-6">Interface Philosopher</p>
+                    <p class="text-gray-300 leading-relaxed">
+                        With 20 years of experience building real products, my focus has shifted from creating interfaces to interpreting their meaning. My role is to be your strategic partner, uncovering the fundamental "why" that will drive your product's lasting success. I share my ongoing research and findings on the "Design Lovers" YouTube channel.
+                    </p>
+                </div>
+            </section>
+
+             <!-- Final CTA Section -->
+            <section class="py-20 sm:py-32 text-center" id="contact">
+                <div class="bg-gradient-to-br from-[#EB4D4D]/80 to-[#ffc700]/80 p-12 sm:p-20 rounded-2xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h2 class="text-5xl sm:text-7xl font-extrabold text-black tracking-tighter">An Invitation to Clarity.</h2>
+                        <p class="max-w-2xl mx-auto text-lg text-black/80 mt-6 mb-10">
+                            A single, focused conversation can change the entire trajectory of your product. Let's explore if we are the right fit to uncover your design philosophy.
+                        </p>
+                        <a href="mailto:ceo@delo.design" class="inline-block bg-black text-white font-bold py-4 px-10 rounded-full text-lg cta-button">
+                            Schedule an Exploration Call
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="py-12 mt-16 border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> DELO STUDIO LTD. All rights reserved.</p>
+            <p class="text-sm mt-2">Company Number: 15852642. Registered in England and Wales.</p>
+            <p class="text-sm mt-1">20 Wenlock Road, London, N1 7GU, United Kingdom</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
