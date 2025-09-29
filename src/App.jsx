@@ -36,10 +36,13 @@ function App() {
         <div className="max-w-6xl mx-auto px-8 py-6">
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-8">
-              <img src="/src/assets/delo_logo.webp" alt="DELO Logo" className="h-8" />
+              <img src="https://static.tildacdn.com/tild3361-3837-4265-a436-383139323065/photo.svg" alt="DELO Logo" className="h-8" />
             </div>
             <div className="col-span-4 text-right">
-              <img src="/src/assets/tilda_logo.svg" alt="Contact Logo" className="h-8 inline-block" />
+              <a href="mailto:hello@iliawerner.com" className="inline-flex items-center gap-2 text-sm hover:underline">
+                <Mail size={16} />
+                hello@iliawerner.com
+              </a>
             </div>
           </div>
         </div>
@@ -56,7 +59,7 @@ function App() {
                 PHILOSOPHY
               </h2>
             </div>
-            <div className="col-span-4 mt-12">
+            <div className="col-span-4">
               <p className="text-lg leading-relaxed">
                 We will create a guide that helps you clearly and cleanly see how you should act. 
                 How to communicate, what methods and tools to use.
@@ -210,16 +213,17 @@ function App() {
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12">
               <h3 className="text-4xl font-bold mb-8">AUTHOR</h3>
-              <div className="grid grid-cols-12 gap-8">
-                <div className="col-span-6">
-                  <img src="/src/assets/ilia_werner_podcast.png" alt="Ilia Werner" className="w-full h-auto object-cover mb-6" />
-                  <p className="text-lg leading-relaxed mb-2">
-                    <strong>Ilia Werner.</strong> Host and author of the YouTube channel <em>Design Lovers.</em>
-                  </p>
-                  <p className="text-sm leading-relaxed mb-6">
-                    A design researcher exploring anthropology, philosophy, sociology, and culture.
-                  </p>
-                  <blockquote className="text-base leading-relaxed border-l-2 border-black pl-4 italic">
+              <div className="grid grid-cols-12 gap-8 mb-12 items-start">
+                <div className="col-span-4">
+                  <img src="https://github.com/iliawerner/iliawerner/raw/fc3ee65c725080ad7d99eb3bb4c59afba1970a3c/podcast.png" alt="Ilia Werner" className="w-full h-auto object-cover rounded-lg" />
+                </div>
+                <div className="col-span-8">
+                  <p className="text-5xl font-bold mb-4">Ilia Werner</p>
+                  <p className="text-lg leading-relaxed mb-2">Host and author of the YouTube channel <em>Design Lovers.</em></p>
+                  <p className="text-base leading-relaxed mb-6">A design researcher exploring anthropology, philosophy, sociology, and culture.</p>
+                </div>
+                <div className="col-span-12">
+                  <blockquote className="text-xl leading-relaxed border-l-2 border-black pl-4 italic font-serif">
                     "After 20 years of design practice, 3 years of teaching, and 6 years of running 
                     my design studio DELO, I decided to step away from practical implementation and 
                     move toward what I do best — studying the essence of things. The essence of 
@@ -227,38 +231,27 @@ function App() {
                     they send, and how those signals are perceived."
                   </blockquote>
                 </div>
-                <div className="col-span-6">
-                  <h4 className="text-xl font-bold mb-6">FEATURED VIDEOS</h4>
-                  <div className="space-y-4">
-                    <div className="aspect-video w-full">
-                      <iframe 
-                        src="https://www.youtube.com/embed/YElVQqNwrJ4" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="w-full h-full"
-                      ></iframe>
-                    </div>
-                    <div className="aspect-video w-full">
-                      <iframe 
-                        src="https://www.youtube.com/embed/bU7ehwW4pws" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="w-full h-full"
-                      ></iframe>
-                    </div>
-                    <div className="aspect-video w-full">
-                      <iframe 
-                        src="https://www.youtube.com/embed/ek9pXcMaVNA" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="w-full h-full"
-                      ></iframe>
-                    </div>
+              </div>
+              <h3 className="text-4xl font-bold mb-8">FEATURED VIDEOS</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href="https://www.youtube.com/watch?v=YElVQqNwrJ4" target="_blank" rel="noopener noreferrer" className="block aspect-video w-full relative group">
+                  <img src="https://i.ytimg.com/vi/YElVQqNwrJ4/hqdefault.jpg" alt="Apple Design: The twenty pixels that changed design forever" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play text-white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                   </div>
-                </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=bU7ehwW4pws" target="_blank" rel="noopener noreferrer" className="block aspect-video w-full relative group">
+                  <img src="https://i.ytimg.com/vi/bU7ehwW4pws/hqdefault.jpg" alt="This Simple Box Created a Revolution" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play text-white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=ek9pXcMaVNA" target="_blank" rel="noopener noreferrer" className="block aspect-video w-full relative group">
+                  <img src="https://i.ytimg.com/vi/ek9pXcMaVNA/hqdefault.jpg" alt="Is Perplexity\"s rebranding a game-changer?" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play text-white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
@@ -290,7 +283,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-8 py-8">
           <div className="grid grid-cols-12 gap-4">
             <div className="col-span-8">
-              <p className="text-sm">© 2025 ILIA WERNER. ALL RIGHTS RESERVED.</p>
+              <p className="text-sm">© 2025 DELO STUDIO LTD. ALL RIGHTS RESERVED.</p>
             </div>
             <div className="col-span-4 text-right">
               <a href="mailto:ilia@iliawerner.com" className="text-sm hover:underline">
