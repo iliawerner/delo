@@ -247,7 +247,7 @@ function App() {
                   </div>
                 </a>
                 <a href="https://www.youtube.com/watch?v=ek9pXcMaVNA" target="_blank" rel="noopener noreferrer" className="block aspect-video w-full relative group">
-                  <img src="https://i.ytimg.com/vi/ek9pXcMaVNA/hqdefault.jpg" alt="Is Perplexity\"s rebranding a game-changer?" className="w-full h-full object-cover" />
+                  <img src="https://i.ytimg.com/vi/ek9pXcMaVNA/hqdefault.jpg" alt="Is Perplexity's rebranding a game-changer?" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play text-white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                   </div>
@@ -271,7 +271,7 @@ function App() {
                 hello@iliawerner.com
               </a>
               <p className="text-base leading-relaxed mt-4">
-                We\'ll get back to you within a couple of days.
+                We'll get back to you within a couple of days.
               </p>
             </div>
           </div>
