@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react"
-import { Mail, Youtube, ExternalLink } from "lucide-react"
+import { Mail } from "lucide-react"
 
 import { Button } from "@/components/ui/button.jsx"
 import { Card, CardContent } from "@/components/ui/card.jsx"
@@ -81,7 +81,7 @@ function App() {
 
       {/* Hero Section */}
       <section className="border-b-2 border-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8">
             <div className="lg:col-span-8 space-y-6 lg:space-y-8">
               <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
@@ -97,21 +97,6 @@ function App() {
                 We will create a guide that helps you clearly and cleanly see how you should act.
                 How to communicate, what methods and tools to use.
               </p>
-              <Button
-                asChild
-                variant="outline"
-                className="inline-flex items-center gap-2 border-2 border-black rounded-none uppercase tracking-wide"
-              >
-                <a
-                  href="https://www.youtube.com/@DesignLovers"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2"
-                >
-                  <Youtube size={18} aria-hidden />
-                  Watch the channel
-                </a>
-              </Button>
             </div>
           </div>
         </div>
@@ -119,49 +104,49 @@ function App() {
 
       {/* Main Content */}
       <section className="border-b-2 border-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12">
             <div className="lg:col-span-6 space-y-6">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-6">WHAT WE COVER</h3>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6">WHAT WE COVER</h3>
               <div className="space-y-4">
-                <div className="border-2 border-black p-4">
+                <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">HISTORY</p>
                 </div>
-                <div className="border-2 border-black p-4">
+                <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">PHILOSOPHY</p>
                 </div>
-                <div className="border-2 border-black p-4">
+                <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">PSYCHOLOGY</p>
                 </div>
-                <div className="border-2 border-black p-4">
+                <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">ANTHROPOLOGY</p>
                 </div>
-                <div className="border-2 border-black p-4">
+                <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">CULTURE</p>
                 </div>
-                <div className="border-2 border-black p-4">
+                <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">SOCIOLOGY</p>
                 </div>
               </div>
             </div>
             <div className="lg:col-span-6 space-y-6">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-6">WHAT WE RELY ON:</h3>
-              <div className="space-y-4 mb-8">
-                <div className="border-2 border-black p-4">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6">WHAT WE RELY ON</h3>
+              <div className="space-y-4 mb-10">
+                <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">AUDIENCE</p>
                 </div>
-                <div className="border-2 border-black p-4">
+                <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">PRODUCT</p>
                 </div>
-                <div className="border-2 border-black p-4">
+                <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">VALUES</p>
                 </div>
-                <div className="border-2 border-black p-4">
+                <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">PERSONALITY</p>
                 </div>
               </div>
-              <h3 className="text-xl sm:text-2xl font-light mb-6">OUR FOUNDATION</h3>
-              <p className="text-lg sm:text-xl leading-relaxed">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mt-12 mb-4">OUR FOUNDATION</h3>
+              <p className="text-base sm:text-lg leading-relaxed">
                 Each aspect requires studying historical precedents and their outcomes, as well as scientific articles connected
                 to the areas of perception we explore. We rely both on clear, scientific, and measurable indicators, and at the
                 same time study the philosophy and culture of these solutions and approaches.
@@ -173,42 +158,42 @@ function App() {
 
       {/* Artifacts & Pricing */}
       <section className="border-b-2 border-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-8 lg:mb-12">ARTIFACTS</h3>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-10 lg:mb-14">ARTIFACTS</h3>
           <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="w-full">
               <Card className="border-2 border-black rounded-none h-full">
-                <CardContent className="p-6">
-                  <h4 className="text-xl sm:text-2xl font-light mb-4">THE GUIDE</h4>
-                  <p className="text-lg sm:text-xl mb-6 leading-relaxed">
+                <CardContent className="flex h-full flex-col gap-4 p-6">
+                  <h4 className="text-xl sm:text-2xl font-light">THE GUIDE</h4>
+                  <p className="text-lg sm:text-xl leading-relaxed">
                     The main artifact is the guide itself. This is the result of the work: a clear and detailed instruction that
                     will help you make decisions when "designing" your product in the broad sense.
                   </p>
-                  <div className="text-2xl sm:text-3xl font-bold">$4000</div>
+                  <div className="mt-auto text-2xl sm:text-3xl font-bold">$4000</div>
                 </CardContent>
               </Card>
             </div>
             <div className="w-full">
               <Card className="border-2 border-black rounded-none h-full">
-                <CardContent className="p-6">
-                  <h4 className="text-xl sm:text-2xl font-light mb-4">CONCEPTS</h4>
-                  <p className="text-lg sm:text-xl mb-6 leading-relaxed">
+                <CardContent className="flex h-full flex-col gap-4 p-6">
+                  <h4 className="text-xl sm:text-2xl font-light">CONCEPTS</h4>
+                  <p className="text-lg sm:text-xl leading-relaxed">
                     Product development strategies. For example, while researching the history of browsers for huly.io, we came up
                     with the concept of "Flows" instead of tab groups or workspaces.
                   </p>
-                  <div className="text-2xl sm:text-3xl font-bold">+$2000</div>
+                  <div className="mt-auto text-2xl sm:text-3xl font-bold">+$2000</div>
                 </CardContent>
               </Card>
             </div>
             <div className="w-full md:col-span-2 lg:col-span-1">
               <Card className="border-2 border-black rounded-none h-full">
-                <CardContent className="p-6">
-                  <h4 className="text-xl sm:text-2xl font-light mb-4">MONOGRAPHS</h4>
-                  <p className="text-lg sm:text-xl mb-6 leading-relaxed">
+                <CardContent className="flex h-full flex-col gap-4 p-6">
+                  <h4 className="text-xl sm:text-2xl font-light">MONOGRAPHS</h4>
+                  <p className="text-lg sm:text-xl leading-relaxed">
                     We can also shape all the research materials collected during the study phase into a monograph written
                     specifically for your product.
                   </p>
-                  <div className="text-2xl sm:text-3xl font-bold">+$1000</div>
+                  <div className="mt-auto text-2xl sm:text-3xl font-bold">+$1000</div>
                 </CardContent>
               </Card>
             </div>
@@ -218,16 +203,16 @@ function App() {
 
       {/* Testimonials */}
       <section className="border-b-2 border-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light mb-8 lg:mb-12">TESTIMONIALS</h3>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-10 lg:mb-14">TESTIMONIALS</h3>
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8">
             <div className="w-full">
-              <div className="border-2 border-black p-6">
-                <blockquote className="text-lg sm:text-xl leading-relaxed mb-4">
-                  "Ilia has been a great design partner for Moio, providing sharp, actionable feedback that's helped us refine both
-                  our product and our process. He cuts through the noise, spots what matters, and backs it up with clear reasoning."
+              <div className="border-2 border-black px-6 py-8">
+                <blockquote className="text-lg sm:text-xl leading-relaxed mb-4 italic">
+                  Ilia has been a great design partner for Moio, providing sharp, actionable feedback that's helped us refine both
+                  our product and our process. He cuts through the noise, spots what matters, and backs it up with clear reasoning.
                 </blockquote>
-                <cite className="font-bold">
+                <cite className="font-bold not-italic">
                   MATIC PELCL
                   <br />
                   <span className="font-normal text-sm">Founder of Moio (Product of the Day #1 on Product Hunt)</span>
@@ -235,13 +220,13 @@ function App() {
               </div>
             </div>
             <div className="w-full">
-              <div className="border-2 border-black p-6">
-                <blockquote className="text-lg sm:text-xl leading-relaxed mb-4">
-                  "Ilia has a rare ability to see the essence of things and identify the fundamental principles that drive growth. He
-                  helps separate the essential from the secondary and builds a clear, working system for communication and product
-                  development."
+              <div className="border-2 border-black px-6 py-8">
+                <blockquote className="text-lg sm:text-xl leading-relaxed mb-4 italic">
+                  Ilia has a rare ability to see the essence of things and identify the fundamental principles that drive growth.
+                  He helps separate the essential from the secondary and builds a clear, working system for communication and
+                  product development.
                 </blockquote>
-                <cite className="font-bold">
+                <cite className="font-bold not-italic">
                   WILL TAYLOR
                   <br />
                   <span className="font-normal text-sm">Founder of Workflow</span>
@@ -254,10 +239,10 @@ function App() {
 
       {/* About */}
       <section className="border-b-2 border-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <div className="space-y-8">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light">AUTHOR</h3>
-            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          <div className="space-y-10">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">Илья Вернер</h3>
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
               <div className="w-full lg:col-span-4 flex justify-start">
                 <img
                   src="https://github.com/iliawerner/iliawerner/raw/fc3ee65c725080ad7d99eb3bb4c59afba1970a3c/podcast.png"
@@ -266,12 +251,11 @@ function App() {
                 />
               </div>
               <div className="w-full lg:col-span-8 space-y-4 text-left">
-                <p className="text-3xl sm:text-4xl lg:text-5xl font-bold">Ilia Werner</p>
-                <p className="text-lg sm:text-xl leading-relaxed">
-                  Host and author of the YouTube channel <em>Design Lovers.</em>
-                </p>
                 <p className="text-lg sm:text-xl leading-relaxed">
                   A design researcher exploring anthropology, philosophy, sociology, and culture.
+                </p>
+                <p className="text-lg sm:text-xl leading-relaxed">
+                  Host and author of the YouTube channel <em>Design Lovers.</em>
                 </p>
               </div>
               <div className="w-full lg:col-span-12 mt-6">
@@ -283,8 +267,8 @@ function App() {
                 </blockquote>
               </div>
             </div>
-            <div className="space-y-6 lg:space-y-8">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light">FEATURED VIDEOS</h3>
+            <div className="space-y-8 lg:space-y-10">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">FEATURED VIDEOS</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="space-y-4">
                   <a
@@ -406,10 +390,10 @@ function App() {
 
       {/* Contact Form */}
       <section className="border-b-2 border-black">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
             <div className="space-y-6">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light">CONTACT US</h3>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">CONTACT US</h3>
               <p className="text-lg sm:text-xl leading-relaxed">
                 Describe your product briefly and send it to us at:
               </p>
@@ -418,15 +402,14 @@ function App() {
               </a>
               <p className="text-lg sm:text-xl leading-relaxed">We'll get back to you within a couple of days.</p>
               <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                Prefer a direct line? Reach Ilia via Telegram at
+                Prefer a direct line? Reach Ilia on WhatsApp at
                 <a
                   className="ml-1 inline-flex items-center gap-1 text-black underline-offset-2 hover:underline"
-                  href="https://t.me/iliawerner"
+                  href="https://wa.me/447944473843"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  @iliawerner
-                  <ExternalLink size={16} aria-hidden />
+                  +44 7944 473843
                 </a>
                 .
               </p>
@@ -486,7 +469,7 @@ function App() {
 
       {/* Footer */}
       <footer className="bg-black text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div className="text-center sm:text-left">
               <p className="text-sm">© 2025 DELO STUDIO LTD. ALL RIGHTS RESERVED.</p>
