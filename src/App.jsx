@@ -1,58 +1,11 @@
-import { useMemo, useState } from "react"
 import { Mail } from "lucide-react"
 
-import { Button } from "@/components/ui/button.jsx"
 import { Card, CardContent } from "@/components/ui/card.jsx"
-import { Input } from "@/components/ui/input.jsx"
-import { Textarea } from "@/components/ui/textarea.jsx"
 import "./App.css"
 
 const contactEmail = "hello@iliawerner.com"
-const initialFormState = {
-  name: "",
-  email: "",
-  product: "",
-  message: "",
-}
 
 function App() {
-  const [formData, setFormData] = useState(initialFormState)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target
-    setFormData((previous) => ({
-      ...previous,
-      [name]: value,
-    }))
-  }
-
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-
-    setIsSubmitting(true)
-    try {
-      console.log("Form submitted:", formData)
-      if (typeof window !== "undefined") {
-        window.alert(
-          "Thank you for your submission! Ilia will get back to you within a couple of days.",
-        )
-      }
-      setFormData(initialFormState)
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const isSubmitDisabled = useMemo(() => {
-    return (
-      formData.name.trim() === "" ||
-      formData.email.trim() === "" ||
-      formData.product.trim() === "" ||
-      formData.message.trim() === ""
-    )
-  }, [formData])
-
   return (
     <div className="app-shell min-h-screen text-black font-mono">
       {/* Header */}
@@ -109,22 +62,22 @@ function App() {
             <div className="lg:col-span-6 space-y-6">
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase mb-6">WHAT WE COVER</h3>
               <div className="space-y-4">
-                <div className="border-2 border-black px-6 py-5">
+                <div className="border-2 border-black bg-white px-6 py-5">
                   <p className="font-bold">HISTORY</p>
                 </div>
-                <div className="border-2 border-black px-6 py-5">
+                <div className="border-2 border-black bg-white px-6 py-5">
                   <p className="font-bold">PHILOSOPHY</p>
                 </div>
-                <div className="border-2 border-black px-6 py-5">
+                <div className="border-2 border-black bg-white px-6 py-5">
                   <p className="font-bold">PSYCHOLOGY</p>
                 </div>
-                <div className="border-2 border-black px-6 py-5">
+                <div className="border-2 border-black bg-white px-6 py-5">
                   <p className="font-bold">ANTHROPOLOGY</p>
                 </div>
-                <div className="border-2 border-black px-6 py-5">
+                <div className="border-2 border-black bg-white px-6 py-5">
                   <p className="font-bold">CULTURE</p>
                 </div>
-                <div className="border-2 border-black px-6 py-5">
+                <div className="border-2 border-black bg-white px-6 py-5">
                   <p className="font-bold">SOCIOLOGY</p>
                 </div>
               </div>
@@ -132,16 +85,16 @@ function App() {
             <div className="lg:col-span-6 space-y-6">
               <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase mb-6">WHAT WE RELY ON</h3>
               <div className="space-y-4 mb-10">
-                <div className="border-2 border-black px-6 py-5">
+                <div className="border-2 border-black bg-white px-6 py-5">
                   <p className="font-bold">AUDIENCE</p>
                 </div>
-                <div className="border-2 border-black px-6 py-5">
+                <div className="border-2 border-black bg-white px-6 py-5">
                   <p className="font-bold">PRODUCT</p>
                 </div>
-                <div className="border-2 border-black px-6 py-5">
+                <div className="border-2 border-black bg-white px-6 py-5">
                   <p className="font-bold">VALUES</p>
                 </div>
-                <div className="border-2 border-black px-6 py-5">
+                <div className="border-2 border-black bg-white px-6 py-5">
                   <p className="font-bold">PERSONALITY</p>
                 </div>
               </div>
@@ -207,7 +160,7 @@ function App() {
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase mb-10 lg:mb-14">TESTIMONIALS</h3>
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8">
             <div className="w-full">
-              <div className="border-2 border-black px-6 py-8">
+              <div className="border-2 border-black bg-white px-6 py-8">
                 <blockquote className="text-base sm:text-lg leading-relaxed mb-4 italic">
                   Ilia has been a great design partner for Moio, providing sharp, actionable feedback that's helped us refine both
                   our product and our process. He cuts through the noise, spots what matters, and backs it up with clear reasoning.
@@ -220,7 +173,7 @@ function App() {
               </div>
             </div>
             <div className="w-full">
-              <div className="border-2 border-black px-6 py-8">
+              <div className="border-2 border-black bg-white px-6 py-8">
                 <blockquote className="text-base sm:text-lg leading-relaxed mb-4 italic">
                   Ilia has a rare ability to see the essence of things and identify the fundamental principles that drive growth.
                   He helps separate the essential from the secondary and builds a clear, working system for communication and
@@ -300,7 +253,7 @@ function App() {
                     </div>
                   </a>
                   <div className="space-y-2">
-                    <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">
+                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold">
                       Apple Design: The twenty pixels that changed design forever
                     </h4>
                     <p className="text-base sm:text-lg leading-relaxed">
@@ -338,7 +291,7 @@ function App() {
                     </div>
                   </a>
                   <div className="space-y-2">
-                    <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">This Simple Box Created a Revolution</h4>
+                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold">This Simple Box Created a Revolution</h4>
                     <p className="text-base sm:text-lg leading-relaxed">
                       The history of Box Model technology that changed design as we know it and brought web design closer to
                       old-school poster and book design.
@@ -375,7 +328,7 @@ function App() {
                     </div>
                   </a>
                   <div className="space-y-2">
-                    <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">Is Perplexity's rebranding a game-changer?</h4>
+                    <h4 className="text-lg sm:text-xl lg:text-2xl font-bold">Is Perplexity's rebranding a game-changer?</h4>
                     <p className="text-base sm:text-lg leading-relaxed">
                       Exploring Perplexity's identity approach that allowed them to create a unique visual language in the AI
                       niche.
@@ -388,84 +341,33 @@ function App() {
         </div>
       </section>
 
-      {/* Contact Form */}
+      {/* Contact */}
       <section className="border-b-2 border-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
-            <div className="space-y-6">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">CONTACT US</h3>
-              <p className="text-base sm:text-lg leading-relaxed">
-                Describe your product briefly and send it to us at:
-              </p>
+          <div className="space-y-6">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">CONTACT US</h3>
+            <p className="text-base sm:text-lg leading-relaxed">
+              Describe your product briefly and send it to us at
               <a
                 href={`mailto:${contactEmail}`}
-                className="text-base sm:text-lg font-bold text-black hover:underline block"
+                className="ml-1 font-bold text-black underline-offset-2 hover:underline"
               >
                 {contactEmail}
               </a>
-              <p className="text-base sm:text-lg leading-relaxed">We'll get back to you within a couple of days.</p>
-              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
-                Prefer a direct line? Reach Ilia on WhatsApp at
-                <a
-                  className="ml-1 inline-flex items-center gap-1 text-black underline-offset-2 hover:underline"
-                  href="https://wa.me/447944473843"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  +44 7944 473843
-                </a>
-                .
-              </p>
-            </div>
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <label className="space-y-2 text-left">
-                  <span className="text-sm font-semibold">Name</span>
-                  <Input
-                    name="name"
-                    placeholder="Ada Lovelace"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </label>
-                <label className="space-y-2 text-left">
-                  <span className="text-sm font-semibold">Email</span>
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="ada@lovelace.ai"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </label>
-              </div>
-              <label className="space-y-2 text-left">
-                <span className="text-sm font-semibold">Product or company</span>
-                <Input
-                  name="product"
-                  placeholder="Tell us where design is headed"
-                  value={formData.product}
-                  onChange={handleInputChange}
-                  required
-                />
-              </label>
-              <label className="space-y-2 text-left">
-                <span className="text-sm font-semibold">Message</span>
-                <Textarea
-                  name="message"
-                  placeholder="Share the context, goals, and constraints."
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={5}
-                  required
-                />
-              </label>
-              <Button type="submit" className="w-full sm:w-auto" disabled={isSubmitDisabled || isSubmitting}>
-                {isSubmitting ? "Sending…" : "Send request"}
-              </Button>
-            </form>
+              . We'll get back to you within a couple of days.
+            </p>
+            <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+              Prefer a direct line? Reach Ilia on WhatsApp at
+              <a
+                className="ml-1 inline-flex items-center gap-1 text-black underline-offset-2 hover:underline"
+                href="https://wa.me/447944473843"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                +44 7944 473843
+              </a>
+              .
+            </p>
           </div>
         </div>
       </section>
@@ -473,16 +375,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-black text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-            <div className="text-center sm:text-left">
-              <p className="text-sm">© 2025 DELO STUDIO LTD. ALL RIGHTS RESERVED.</p>
-            </div>
-            <div className="text-center sm:text-right">
-              <a href="mailto:ilia@iliawerner.com" className="text-sm hover:underline">
-                CONTACT
-              </a>
-            </div>
-          </div>
+          <p className="text-center text-sm">© 2025 DELO STUDIO LTD. ALL RIGHTS RESERVED.</p>
         </div>
       </footer>
     </div>
