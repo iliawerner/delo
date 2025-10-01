@@ -54,7 +54,7 @@ function App() {
   }, [formData])
 
   return (
-    <div className="min-h-screen bg-white text-black font-mono">
+    <div className="app-shell min-h-screen text-black font-mono">
       {/* Header */}
       <header className="border-b-2 border-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -242,23 +242,23 @@ function App() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="space-y-10">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">ILIA WERNER</h3>
-            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-              <div className="w-full lg:col-span-4 flex justify-start">
-                <img
-                  src="https://github.com/iliawerner/iliawerner/raw/fc3ee65c725080ad7d99eb3bb4c59afba1970a3c/podcast.png"
-                  alt="Ilia Werner"
-                  className="w-full max-w-sm lg:max-w-none h-auto object-cover rounded-lg"
-                />
+            <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 items-start lg:items-stretch">
+              <div className="w-full lg:col-span-4 flex justify-start lg:self-stretch">
+                <div className="relative w-full max-w-sm lg:max-w-none lg:h-full">
+                  <img
+                    src="https://github.com/iliawerner/iliawerner/raw/fc3ee65c725080ad7d99eb3bb4c59afba1970a3c/podcast.png"
+                    alt="Ilia Werner"
+                    className="h-full w-full object-cover rounded-lg"
+                  />
+                </div>
               </div>
-              <div className="w-full lg:col-span-8 space-y-4 text-left">
+              <div className="w-full lg:col-span-8 flex flex-col gap-4 text-left h-full">
                 <p className="text-base sm:text-lg leading-relaxed">
                   A design researcher exploring anthropology, philosophy, sociology, and culture.
                 </p>
                 <p className="text-base sm:text-lg leading-relaxed">
                   Host and author of the YouTube channel <em>Design Lovers.</em>
                 </p>
-              </div>
-              <div className="w-full lg:col-span-12 mt-6">
                 <blockquote className="text-base sm:text-lg leading-relaxed border-l-2 border-black pl-4 lg:pl-6 italic font-serif">
                   After 20 years of design practice, 3 years of teaching, and 6 years of running my design studio DELO, I decided to
                   step away from practical implementation and move toward what I do best — studying the essence of things. The
