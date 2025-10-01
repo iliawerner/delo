@@ -1,33 +1,57 @@
-import { useState } from 'react ;';
-import { Button } from '@/components/ui/button.jsx'
-import { Card, CardContent } from '@/components/ui/card.jsx'
-import { Input } from '@/components/ui/input.jsx'
-import { Textarea } from '@/components/ui/textarea.jsx'
-import { Mail, Youtube, ExternalLink } from 'lucide-react'
-import './App.css'
+import { useMemo, useState } from "react"
+import { Mail, Youtube, ExternalLink } from "lucide-react"
+
+import { Button } from "@/components/ui/button.jsx"
+import { Card, CardContent } from "@/components/ui/card.jsx"
+import { Input } from "@/components/ui/input.jsx"
+import { Textarea } from "@/components/ui/textarea.jsx"
+import "./App.css"
+
+const contactEmail = "hello@iliawerner.com"
+const initialFormState = {
+  name: "",
+  email: "",
+  product: "",
+  message: "",
+}
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    product: '',
-    message: ''
-  })
+  const [formData, setFormData] = useState(initialFormState)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
+  const handleInputChange = (event) => {
+    const { name, value } = event.target
+    setFormData((previous) => ({
+      ...previous,
+      [name]: value,
     }))
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // In a real implementation, this would send the data to a server
-    console.log('Form submitted:', formData)
-    alert('Thank you for your submission! Ilia will get back to you within a couple of days.')
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    setIsSubmitting(true)
+    try {
+      console.log("Form submitted:", formData)
+      if (typeof window !== "undefined") {
+        window.alert(
+          "Thank you for your submission! Ilia will get back to you within a couple of days.",
+        )
+      }
+      setFormData(initialFormState)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
+
+  const isSubmitDisabled = useMemo(() => {
+    return (
+      formData.name.trim() === "" ||
+      formData.email.trim() === "" ||
+      formData.product.trim() === "" ||
+      formData.message.trim() === ""
+    )
+  }, [formData])
 
   return (
     <div className="min-h-screen bg-white text-black font-mono">
@@ -36,12 +60,19 @@ function App() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div className="flex-shrink-0">
-              <img src="https://static.tildacdn.com/tild3361-3837-4265-a436-383139323065/photo.svg" alt="DELO Logo" className="h-8" />
+              <img
+                src="https://static.tildacdn.com/tild3361-3837-4265-a436-383139323065/photo.svg"
+                alt="DELO Logo"
+                className="h-8"
+              />
             </div>
             <div className="text-left sm:text-right">
-              <a href="mailto:hello@iliawerner.com" className="inline-flex items-center gap-2 text-sm hover:underline">
+              <a
+                href={`mailto:${contactEmail}`}
+                className="inline-flex items-center gap-2 text-sm hover:underline"
+              >
                 <Mail size={16} />
-                hello@iliawerner.com
+                {contactEmail}
               </a>
             </div>
           </div>
@@ -54,16 +85,33 @@ function App() {
           <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8">
             <div className="lg:col-span-8 space-y-6 lg:space-y-8">
               <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight">
-                YOUR PRODUCT'S<br />
-                GUIDING DESIGN<br />
+                YOUR PRODUCT'S
+                <br />
+                GUIDING DESIGN
+                <br />
                 PHILOSOPHY
               </h2>
             </div>
             <div className="lg:col-span-4 space-y-4">
               <p className="text-lg sm:text-xl leading-relaxed">
-                We will create a guide that helps you clearly and cleanly see how you should act. 
+                We will create a guide that helps you clearly and cleanly see how you should act.
                 How to communicate, what methods and tools to use.
               </p>
+              <Button
+                asChild
+                variant="outline"
+                className="inline-flex items-center gap-2 border-2 border-black rounded-none uppercase tracking-wide"
+              >
+                <a
+                  href="https://www.youtube.com/@DesignLovers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2"
+                >
+                  <Youtube size={18} aria-hidden />
+                  Watch the channel
+                </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -114,10 +162,9 @@ function App() {
               </div>
               <h3 className="text-xl sm:text-2xl font-light mb-6">OUR FOUNDATION</h3>
               <p className="text-lg sm:text-xl leading-relaxed">
-                Each aspect requires studying historical precedents and their outcomes, 
-                as well as scientific articles connected to the areas of perception we explore. 
-                We rely both on clear, scientific, and measurable indicators, and at the same time 
-                study the philosophy and culture of these solutions and approaches.
+                Each aspect requires studying historical precedents and their outcomes, as well as scientific articles connected
+                to the areas of perception we explore. We rely both on clear, scientific, and measurable indicators, and at the
+                same time study the philosophy and culture of these solutions and approaches.
               </p>
             </div>
           </div>
@@ -134,9 +181,8 @@ function App() {
                 <CardContent className="p-6">
                   <h4 className="text-xl sm:text-2xl font-light mb-4">THE GUIDE</h4>
                   <p className="text-lg sm:text-xl mb-6 leading-relaxed">
-                    The main artifact is the guide itself. This is the result of the work: 
-                    a clear and detailed instruction that will help you make decisions when 
-                    "designing" your product in the broad sense.
+                    The main artifact is the guide itself. This is the result of the work: a clear and detailed instruction that
+                    will help you make decisions when "designing" your product in the broad sense.
                   </p>
                   <div className="text-2xl sm:text-3xl font-bold">$4000</div>
                 </CardContent>
@@ -147,9 +193,8 @@ function App() {
                 <CardContent className="p-6">
                   <h4 className="text-xl sm:text-2xl font-light mb-4">CONCEPTS</h4>
                   <p className="text-lg sm:text-xl mb-6 leading-relaxed">
-                    Product development strategies. For example, while researching the history 
-                    of browsers for huly.io, we came up with the concept of "Flows" instead 
-                    of tab groups or workspaces.
+                    Product development strategies. For example, while researching the history of browsers for huly.io, we came up
+                    with the concept of "Flows" instead of tab groups or workspaces.
                   </p>
                   <div className="text-2xl sm:text-3xl font-bold">+$2000</div>
                 </CardContent>
@@ -160,8 +205,8 @@ function App() {
                 <CardContent className="p-6">
                   <h4 className="text-xl sm:text-2xl font-light mb-4">MONOGRAPHS</h4>
                   <p className="text-lg sm:text-xl mb-6 leading-relaxed">
-                    We can also shape all the research materials collected during the study 
-                    phase into a monograph written specifically for your product.
+                    We can also shape all the research materials collected during the study phase into a monograph written
+                    specifically for your product.
                   </p>
                   <div className="text-2xl sm:text-3xl font-bold">+$1000</div>
                 </CardContent>
@@ -179,12 +224,12 @@ function App() {
             <div className="w-full">
               <div className="border-2 border-black p-6">
                 <blockquote className="text-lg sm:text-xl leading-relaxed mb-4">
-                  "Ilia has been a great design partner for Moio, providing sharp, actionable 
-                  feedback that's helped us refine both our product and our process. He cuts 
-                  through the noise, spots what matters, and backs it up with clear reasoning."
+                  "Ilia has been a great design partner for Moio, providing sharp, actionable feedback that's helped us refine both
+                  our product and our process. He cuts through the noise, spots what matters, and backs it up with clear reasoning."
                 </blockquote>
                 <cite className="font-bold">
-                  MATIC PELCL<br />
+                  MATIC PELCL
+                  <br />
                   <span className="font-normal text-sm">Founder of Moio (Product of the Day #1 on Product Hunt)</span>
                 </cite>
               </div>
@@ -192,13 +237,13 @@ function App() {
             <div className="w-full">
               <div className="border-2 border-black p-6">
                 <blockquote className="text-lg sm:text-xl leading-relaxed mb-4">
-                  "Ilia has a rare ability to see the essence of things and identify the 
-                  fundamental principles that drive growth. He helps separate the essential 
-                  from the secondary and builds a clear, working system for communication 
-                  and product development."
+                  "Ilia has a rare ability to see the essence of things and identify the fundamental principles that drive growth. He
+                  helps separate the essential from the secondary and builds a clear, working system for communication and product
+                  development."
                 </blockquote>
                 <cite className="font-bold">
-                  WILL TAYLOR<br />
+                  WILL TAYLOR
+                  <br />
                   <span className="font-normal text-sm">Founder of Workflow</span>
                 </cite>
               </div>
@@ -214,20 +259,27 @@ function App() {
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light">AUTHOR</h3>
             <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
               <div className="w-full lg:col-span-4 flex justify-start">
-                <img src="https://github.com/iliawerner/iliawerner/raw/fc3ee65c725080ad7d99eb3bb4c59afba1970a3c/podcast.png" alt="Ilia Werner" className="w-full max-w-sm lg:max-w-none h-auto object-cover rounded-lg" />
+                <img
+                  src="https://github.com/iliawerner/iliawerner/raw/fc3ee65c725080ad7d99eb3bb4c59afba1970a3c/podcast.png"
+                  alt="Ilia Werner"
+                  className="w-full max-w-sm lg:max-w-none h-auto object-cover rounded-lg"
+                />
               </div>
               <div className="w-full lg:col-span-8 space-y-4 text-left">
                 <p className="text-3xl sm:text-4xl lg:text-5xl font-bold">Ilia Werner</p>
-                <p className="text-lg sm:text-xl leading-relaxed">Host and author of the YouTube channel <em>Design Lovers.</em></p>
-                <p className="text-lg sm:text-xl leading-relaxed">A design researcher exploring anthropology, philosophy, sociology, and culture.</p>
+                <p className="text-lg sm:text-xl leading-relaxed">
+                  Host and author of the YouTube channel <em>Design Lovers.</em>
+                </p>
+                <p className="text-lg sm:text-xl leading-relaxed">
+                  A design researcher exploring anthropology, philosophy, sociology, and culture.
+                </p>
               </div>
               <div className="w-full lg:col-span-12 mt-6">
                 <blockquote className="text-lg sm:text-xl leading-relaxed border-l-2 border-black pl-4 lg:pl-6 italic font-serif">
-                  "After 20 years of design practice, 3 years of teaching, and 6 years of running 
-                  my design studio DELO, I decided to step away from practical implementation and 
-                  move toward what I do best — studying the essence of things. The essence of 
-                  products and services, how they interact with their audiences, what signals 
-                  they send, and how those signals are perceived."
+                  "After 20 years of design practice, 3 years of teaching, and 6 years of running my design studio DELO, I decided to
+                  step away from practical implementation and move toward what I do best — studying the essence of things. The
+                  essence of products and services, how they interact with their audiences, what signals they send, and how those
+                  signals are perceived."
                 </blockquote>
               </div>
             </div>
@@ -235,39 +287,115 @@ function App() {
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light">FEATURED VIDEOS</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="space-y-4">
-                  <a href="https://www.youtube.com/watch?v=YElVQqNwrJ4" target="_blank" rel="noopener noreferrer" className="block aspect-video w-full relative group">
-                    <img src="https://i.ytimg.com/vi/YElVQqNwrJ4/hqdefault.jpg" alt="Apple Design: The twenty pixels that changed design forever" className="w-full h-full object-cover" />
+                  <a
+                    href="https://www.youtube.com/watch?v=YElVQqNwrJ4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block aspect-video w-full relative group"
+                  >
+                    <img
+                      src="https://i.ytimg.com/vi/YElVQqNwrJ4/hqdefault.jpg"
+                      alt="Apple Design: The twenty pixels that changed design forever"
+                      className="w-full h-full object-cover"
+                    />
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play text-white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="48"
+                        height="48"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-play text-white"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                      </svg>
                     </div>
                   </a>
                   <div className="space-y-2">
-                    <h4 className="text-xl sm:text-2xl font-light">Apple Design: The twenty pixels that changed design forever</h4>
-                    <p className="text-lg sm:text-xl leading-relaxed">Analysis of the mathematical features of rounded corners that unified Apple's digital and physical design.</p>
+                    <h4 className="text-xl sm:text-2xl font-light">
+                      Apple Design: The twenty pixels that changed design forever
+                    </h4>
+                    <p className="text-lg sm:text-xl leading-relaxed">
+                      Analysis of the mathematical features of rounded corners that unified Apple's digital and physical design.
+                    </p>
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <a href="https://www.youtube.com/watch?v=bU7ehwW4pws" target="_blank" rel="noopener noreferrer" className="block aspect-video w-full relative group">
-                    <img src="https://i.ytimg.com/vi/bU7ehwW4pws/hqdefault.jpg" alt="This Simple Box Created a Revolution" className="w-full h-full object-cover" />
+                  <a
+                    href="https://www.youtube.com/watch?v=bU7ehwW4pws"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block aspect-video w-full relative group"
+                  >
+                    <img
+                      src="https://i.ytimg.com/vi/bU7ehwW4pws/hqdefault.jpg"
+                      alt="This Simple Box Created a Revolution"
+                      className="w-full h-full object-cover"
+                    />
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play text-white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="48"
+                        height="48"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-play text-white"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                      </svg>
                     </div>
                   </a>
                   <div className="space-y-2">
                     <h4 className="text-xl sm:text-2xl font-light">This Simple Box Created a Revolution</h4>
-                    <p className="text-lg sm:text-xl leading-relaxed">The history of Box Model technology that changed design as we know it and brought web design closer to old-school poster and book design.</p>
+                    <p className="text-lg sm:text-xl leading-relaxed">
+                      The history of Box Model technology that changed design as we know it and brought web design closer to
+                      old-school poster and book design.
+                    </p>
                   </div>
                 </div>
                 <div className="space-y-4 md:col-span-2 lg:col-span-1">
-                  <a href="https://www.youtube.com/watch?v=ek9pXcMaVNA" target="_blank" rel="noopener noreferrer" className="block aspect-video w-full relative group">
-                    <img src="https://i.ytimg.com/vi/ek9pXcMaVNA/hqdefault.jpg" alt="Is Perplexity's rebranding a game-changer?" className="w-full h-full object-cover" />
+                  <a
+                    href="https://www.youtube.com/watch?v=ek9pXcMaVNA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block aspect-video w-full relative group"
+                  >
+                    <img
+                      src="https://i.ytimg.com/vi/ek9pXcMaVNA/hqdefault.jpg"
+                      alt="Is Perplexity's rebranding a game-changer?"
+                      className="w-full h-full object-cover"
+                    />
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play text-white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="48"
+                        height="48"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-play text-white"
+                      >
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                      </svg>
                     </div>
                   </a>
                   <div className="space-y-2">
                     <h4 className="text-xl sm:text-2xl font-light">Is Perplexity's rebranding a game-changer?</h4>
-                    <p className="text-lg sm:text-xl leading-relaxed">Exploring Perplexity's identity approach that allowed them to create a unique visual language in the AI niche.</p>
+                    <p className="text-lg sm:text-xl leading-relaxed">
+                      Exploring Perplexity's identity approach that allowed them to create a unique visual language in the AI
+                      niche.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -279,17 +407,79 @@ function App() {
       {/* Contact Form */}
       <section className="border-b-2 border-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <div className="text-left space-y-6">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light">CONTACT US</h3>
-            <p className="text-lg sm:text-xl leading-relaxed">
-              Describe your product briefly and send it to us at:
-            </p>
-            <a href="mailto:hello@iliawerner.com" className="text-2xl sm:text-3xl font-bold text-black hover:underline block">
-              hello@iliawerner.com
-            </a>
-            <p className="text-lg sm:text-xl leading-relaxed">
-              We'll get back to you within a couple of days.
-            </p>
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
+            <div className="space-y-6">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-light">CONTACT US</h3>
+              <p className="text-lg sm:text-xl leading-relaxed">
+                Describe your product briefly and send it to us at:
+              </p>
+              <a href={`mailto:${contactEmail}`} className="text-2xl sm:text-3xl font-bold text-black hover:underline block">
+                {contactEmail}
+              </a>
+              <p className="text-lg sm:text-xl leading-relaxed">We'll get back to you within a couple of days.</p>
+              <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+                Prefer a direct line? Reach Ilia via Telegram at
+                <a
+                  className="ml-1 inline-flex items-center gap-1 text-black underline-offset-2 hover:underline"
+                  href="https://t.me/iliawerner"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @iliawerner
+                  <ExternalLink size={16} aria-hidden />
+                </a>
+                .
+              </p>
+            </div>
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className="space-y-2 text-left">
+                  <span className="text-sm font-semibold">Name</span>
+                  <Input
+                    name="name"
+                    placeholder="Ada Lovelace"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </label>
+                <label className="space-y-2 text-left">
+                  <span className="text-sm font-semibold">Email</span>
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="ada@lovelace.ai"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </label>
+              </div>
+              <label className="space-y-2 text-left">
+                <span className="text-sm font-semibold">Product or company</span>
+                <Input
+                  name="product"
+                  placeholder="Tell us where design is headed"
+                  value={formData.product}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              <label className="space-y-2 text-left">
+                <span className="text-sm font-semibold">Message</span>
+                <Textarea
+                  name="message"
+                  placeholder="Share the context, goals, and constraints."
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={5}
+                  required
+                />
+              </label>
+              <Button type="submit" className="w-full sm:w-auto" disabled={isSubmitDisabled || isSubmitting}>
+                {isSubmitting ? "Sending…" : "Send request"}
+              </Button>
+            </form>
           </div>
         </div>
       </section>
