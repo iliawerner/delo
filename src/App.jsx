@@ -107,7 +107,7 @@ function App() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-12">
             <div className="lg:col-span-6 space-y-6">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6">WHAT WE COVER</h3>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase mb-6">WHAT WE COVER</h3>
               <div className="space-y-4">
                 <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">HISTORY</p>
@@ -130,7 +130,7 @@ function App() {
               </div>
             </div>
             <div className="lg:col-span-6 space-y-6">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6">WHAT WE RELY ON</h3>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase mb-6">WHAT WE RELY ON</h3>
               <div className="space-y-4 mb-10">
                 <div className="border-2 border-black px-6 py-5">
                   <p className="font-bold">AUDIENCE</p>
@@ -145,7 +145,7 @@ function App() {
                   <p className="font-bold">PERSONALITY</p>
                 </div>
               </div>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mt-12 mb-4">OUR FOUNDATION</h3>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase mt-12 mb-4">OUR FOUNDATION</h3>
               <p className="text-base sm:text-lg leading-relaxed">
                 Each aspect requires studying historical precedents and their outcomes, as well as scientific articles connected
                 to the areas of perception we explore. We rely both on clear, scientific, and measurable indicators, and at the
@@ -159,13 +159,13 @@ function App() {
       {/* Artifacts & Pricing */}
       <section className="border-b-2 border-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-10 lg:mb-14">ARTIFACTS</h3>
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase mb-10 lg:mb-14">ARTIFACTS</h3>
           <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="w-full">
               <Card className="border-2 border-black rounded-none h-full">
                 <CardContent className="flex h-full flex-col gap-4 p-6">
-                  <h4 className="text-xl sm:text-2xl font-light">THE GUIDE</h4>
-                  <p className="text-lg sm:text-xl leading-relaxed">
+                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">THE GUIDE</h4>
+                  <p className="text-base sm:text-lg leading-relaxed">
                     The main artifact is the guide itself. This is the result of the work: a clear and detailed instruction that
                     will help you make decisions when "designing" your product in the broad sense.
                   </p>
@@ -176,8 +176,8 @@ function App() {
             <div className="w-full">
               <Card className="border-2 border-black rounded-none h-full">
                 <CardContent className="flex h-full flex-col gap-4 p-6">
-                  <h4 className="text-xl sm:text-2xl font-light">CONCEPTS</h4>
-                  <p className="text-lg sm:text-xl leading-relaxed">
+                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">CONCEPTS</h4>
+                  <p className="text-base sm:text-lg leading-relaxed">
                     Product development strategies. For example, while researching the history of browsers for huly.io, we came up
                     with the concept of "Flows" instead of tab groups or workspaces.
                   </p>
@@ -188,8 +188,8 @@ function App() {
             <div className="w-full md:col-span-2 lg:col-span-1">
               <Card className="border-2 border-black rounded-none h-full">
                 <CardContent className="flex h-full flex-col gap-4 p-6">
-                  <h4 className="text-xl sm:text-2xl font-light">MONOGRAPHS</h4>
-                  <p className="text-lg sm:text-xl leading-relaxed">
+                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">MONOGRAPHS</h4>
+                  <p className="text-base sm:text-lg leading-relaxed">
                     We can also shape all the research materials collected during the study phase into a monograph written
                     specifically for your product.
                   </p>
@@ -204,11 +204,11 @@ function App() {
       {/* Testimonials */}
       <section className="border-b-2 border-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-10 lg:mb-14">TESTIMONIALS</h3>
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase mb-10 lg:mb-14">TESTIMONIALS</h3>
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8">
             <div className="w-full">
               <div className="border-2 border-black px-6 py-8">
-                <blockquote className="text-lg sm:text-xl leading-relaxed mb-4 italic">
+                <blockquote className="text-base sm:text-lg leading-relaxed mb-4 italic">
                   Ilia has been a great design partner for Moio, providing sharp, actionable feedback that's helped us refine both
                   our product and our process. He cuts through the noise, spots what matters, and backs it up with clear reasoning.
                 </blockquote>
@@ -221,7 +221,7 @@ function App() {
             </div>
             <div className="w-full">
               <div className="border-2 border-black px-6 py-8">
-                <blockquote className="text-lg sm:text-xl leading-relaxed mb-4 italic">
+                <blockquote className="text-base sm:text-lg leading-relaxed mb-4 italic">
                   Ilia has a rare ability to see the essence of things and identify the fundamental principles that drive growth.
                   He helps separate the essential from the secondary and builds a clear, working system for communication and
                   product development.
@@ -241,7 +241,7 @@ function App() {
       <section className="border-b-2 border-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="space-y-10">
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">Илья Вернер</h3>
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">ILIA WERNER</h3>
             <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
               <div className="w-full lg:col-span-4 flex justify-start">
                 <img
@@ -251,24 +251,24 @@ function App() {
                 />
               </div>
               <div className="w-full lg:col-span-8 space-y-4 text-left">
-                <p className="text-lg sm:text-xl leading-relaxed">
+                <p className="text-base sm:text-lg leading-relaxed">
                   A design researcher exploring anthropology, philosophy, sociology, and culture.
                 </p>
-                <p className="text-lg sm:text-xl leading-relaxed">
+                <p className="text-base sm:text-lg leading-relaxed">
                   Host and author of the YouTube channel <em>Design Lovers.</em>
                 </p>
               </div>
               <div className="w-full lg:col-span-12 mt-6">
-                <blockquote className="text-lg sm:text-xl leading-relaxed border-l-2 border-black pl-4 lg:pl-6 italic font-serif">
-                  "After 20 years of design practice, 3 years of teaching, and 6 years of running my design studio DELO, I decided to
+                <blockquote className="text-base sm:text-lg leading-relaxed border-l-2 border-black pl-4 lg:pl-6 italic font-serif">
+                  After 20 years of design practice, 3 years of teaching, and 6 years of running my design studio DELO, I decided to
                   step away from practical implementation and move toward what I do best — studying the essence of things. The
                   essence of products and services, how they interact with their audiences, what signals they send, and how those
-                  signals are perceived."
+                  signals are perceived.
                 </blockquote>
               </div>
             </div>
             <div className="space-y-8 lg:space-y-10">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">FEATURED VIDEOS</h3>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">FEATURED VIDEOS</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="space-y-4">
                   <a
@@ -300,10 +300,10 @@ function App() {
                     </div>
                   </a>
                   <div className="space-y-2">
-                    <h4 className="text-xl sm:text-2xl font-light">
+                    <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">
                       Apple Design: The twenty pixels that changed design forever
                     </h4>
-                    <p className="text-lg sm:text-xl leading-relaxed">
+                    <p className="text-base sm:text-lg leading-relaxed">
                       Analysis of the mathematical features of rounded corners that unified Apple's digital and physical design.
                     </p>
                   </div>
@@ -338,8 +338,8 @@ function App() {
                     </div>
                   </a>
                   <div className="space-y-2">
-                    <h4 className="text-xl sm:text-2xl font-light">This Simple Box Created a Revolution</h4>
-                    <p className="text-lg sm:text-xl leading-relaxed">
+                    <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">This Simple Box Created a Revolution</h4>
+                    <p className="text-base sm:text-lg leading-relaxed">
                       The history of Box Model technology that changed design as we know it and brought web design closer to
                       old-school poster and book design.
                     </p>
@@ -375,8 +375,8 @@ function App() {
                     </div>
                   </a>
                   <div className="space-y-2">
-                    <h4 className="text-xl sm:text-2xl font-light">Is Perplexity's rebranding a game-changer?</h4>
-                    <p className="text-lg sm:text-xl leading-relaxed">
+                    <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">Is Perplexity's rebranding a game-changer?</h4>
+                    <p className="text-base sm:text-lg leading-relaxed">
                       Exploring Perplexity's identity approach that allowed them to create a unique visual language in the AI
                       niche.
                     </p>
@@ -393,15 +393,18 @@ function App() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
             <div className="space-y-6">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold">CONTACT US</h3>
-              <p className="text-lg sm:text-xl leading-relaxed">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold uppercase">CONTACT US</h3>
+              <p className="text-base sm:text-lg leading-relaxed">
                 Describe your product briefly and send it to us at:
               </p>
-              <a href={`mailto:${contactEmail}`} className="text-2xl sm:text-3xl font-bold text-black hover:underline block">
+              <a
+                href={`mailto:${contactEmail}`}
+                className="text-base sm:text-lg font-bold text-black hover:underline block"
+              >
                 {contactEmail}
               </a>
-              <p className="text-lg sm:text-xl leading-relaxed">We'll get back to you within a couple of days.</p>
-              <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
+              <p className="text-base sm:text-lg leading-relaxed">We'll get back to you within a couple of days.</p>
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
                 Prefer a direct line? Reach Ilia on WhatsApp at
                 <a
                   className="ml-1 inline-flex items-center gap-1 text-black underline-offset-2 hover:underline"
