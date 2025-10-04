@@ -1,0 +1,52 @@
+:root {
+  --text-reveal-duration: 0.72s;
+  --text-reveal-stagger: 60ms;
+}
+
+.text-reveal,
+.text-reveal--no-motion {
+  will-change: opacity, transform, filter;
+}
+
+.text-reveal {
+  opacity: 0;
+  transform: translateY(0.45em);
+  filter: blur(10px);
+  animation: text-reveal var(--text-reveal-duration) var(--text-reveal-delay, 0ms)
+      cubic-bezier(0.6, 0.01, 0.05, 1) forwards,
+    text-reveal-color 0.6s calc(var(--text-reveal-delay, 0ms) + 0.18s)
+      cubic-bezier(0.38, 0.005, 0.215, 1) forwards;
+}
+
+.text-reveal--no-motion {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(0.45em);
+    filter: blur(10px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-0.05em);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes text-reveal-color {
+  0% {
+    color: color-mix(in srgb, currentColor 45%, var(--muted-foreground, #777) 55%);
+  }
+  100% {
+    color: currentColor;
+  }
+}
