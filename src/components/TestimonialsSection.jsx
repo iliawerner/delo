@@ -16,6 +16,7 @@ const testimonials = [
 export function TestimonialsSection() {
   return (
     <section
+      id="testimonials"
       className="border-b-2 border-black py-16 sm:py-20 lg:py-24"
       aria-labelledby="testimonials-heading"
     >

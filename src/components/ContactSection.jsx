@@ -1,6 +1,7 @@
 export function ContactSection() {
   return (
     <section
+      id="contact"
       className="border-b-2 border-black py-16 sm:py-20 lg:py-24"
       aria-labelledby="contact-heading"
     >

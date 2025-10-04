@@ -24,6 +24,7 @@ const artifacts = [
 export function ArtifactsSection() {
   return (
     <section
+      id="artifacts"
       className="border-b-2 border-black py-16 sm:py-20 lg:py-24"
       aria-labelledby="artifacts-heading"
     >
