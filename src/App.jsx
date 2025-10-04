@@ -1,4 +1,5 @@
 import { useState } from 'react ;';
+import { Analytics } from '@vercel/analytics/next'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent } from '@/components/ui/card.jsx'
 import { Input } from '@/components/ui/input.jsx'
@@ -309,6 +310,7 @@ function App() {
           </div>
         </div>
       </footer>
+      <Analytics />
     </div>
   )
 }
