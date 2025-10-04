@@ -1,3 +1,6 @@
+import { Card, CardContent } from '@/components/ui/card.jsx'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Mail, Youtube, ExternalLink } from 'lucide-react'
 import './App.css'
 
 import { AboutSection } from '@/components/AboutSection.jsx'
