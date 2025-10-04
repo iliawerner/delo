@@ -26,6 +26,12 @@ const TEXT_SELECTOR = [
   "caption"
 ].join(",")
 
+const STAGGER_DELAY_MS = 60
+const OBSERVER_OPTIONS = {
+  rootMargin: "0px 0px -20% 0px",
+  threshold: 0.35
+}
+
 function isElementEligible(element) {
   if (!(element instanceof HTMLElement)) {
     return false
@@ -50,10 +56,29 @@ function isElementEligible(element) {
 
 export function useTextReveal() {
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    let order = 0
+    if (typeof window === "undefined") {
+      return undefined
+    }
 
-    const applyAnimation = (element) => {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const prefersReducedMotion = motionQuery.matches
+    const groupCounters = new WeakMap()
+
+    const intersectionObserver = prefersReducedMotion
+      ? null
+      : new IntersectionObserver((entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) {
+              continue
+            }
+
+            const target = entry.target
+            target.classList.add("text-reveal--visible")
+            intersectionObserver.unobserve(target)
+          }
+        }, OBSERVER_OPTIONS)
+
+    const registerElement = (element) => {
       if (!isElementEligible(element)) {
         return
       }
@@ -65,38 +90,42 @@ export function useTextReveal() {
         return
       }
 
-      element.style.setProperty("--text-reveal-delay", `${order * 60}ms`)
+      const parent = element.parentElement ?? document.body
+      const order = groupCounters.get(parent) ?? 0
+      groupCounters.set(parent, order + 1)
+      element.style.setProperty("--text-reveal-delay", `${order * STAGGER_DELAY_MS}ms`)
       element.classList.add("text-reveal")
-      order += 1
+      intersectionObserver.observe(element)
     }
 
-    const applyToNode = (node) => {
+    const processNode = (node) => {
       if (!(node instanceof Element)) {
         return
       }
 
       if (node.matches(TEXT_SELECTOR)) {
-        applyAnimation(node)
+        registerElement(node)
       }
 
-      node.querySelectorAll(TEXT_SELECTOR).forEach(applyAnimation)
+      node.querySelectorAll(TEXT_SELECTOR).forEach(registerElement)
     }
 
-    document.querySelectorAll(TEXT_SELECTOR).forEach(applyAnimation)
+    document.querySelectorAll(TEXT_SELECTOR).forEach(registerElement)
 
-    const observer = new MutationObserver((mutations) => {
+    const mutationObserver = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
-        mutation.addedNodes.forEach((node) => {
-          applyToNode(node)
-        })
+        mutation.addedNodes.forEach(processNode)
       }
     })
 
-    observer.observe(document.body, {
+    mutationObserver.observe(document.body, {
       childList: true,
       subtree: true
     })
 
-    return () => observer.disconnect()
+    return () => {
+      mutationObserver.disconnect()
+      intersectionObserver?.disconnect()
+    }
   }, [])
 }
