@@ -8,7 +8,6 @@ const TEXT_SELECTOR = [
   "h5",
   "h6",
   "p",
-  "li",
   "dt",
   "dd",
   "blockquote",
