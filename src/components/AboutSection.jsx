@@ -43,6 +43,7 @@ export function AboutSection() {
               src="https://github.com/iliawerner/iliawerner/raw/fc3ee65c725080ad7d99eb3bb4c59afba1970a3c/podcast.png"
               alt="Portrait of Ilia Werner"
               className="w-full max-w-sm lg:max-w-none h-full object-cover rounded-lg"
+              data-text-reveal-target="true"
               width="640"
               height="640"
             />
@@ -82,6 +83,7 @@ export function AboutSection() {
                     src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
                     alt={`${title} video thumbnail`}
                     className="w-full h-full object-cover"
+                    data-text-reveal-target="true"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity">

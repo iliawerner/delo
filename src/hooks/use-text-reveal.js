@@ -23,7 +23,10 @@ const TEXT_SELECTOR = [
   "td",
   "summary",
   "caption"
-].join(",")
+]
+
+const BASE_TEXT_SELECTOR = TEXT_SELECTOR.join(",")
+const TARGET_SELECTOR = `${BASE_TEXT_SELECTOR},[data-text-reveal-target]`
 
 const STAGGER_DELAY_MS = 60
 const OBSERVER_OPTIONS = {
@@ -40,9 +43,17 @@ function isElementEligible(element) {
     return false
   }
 
-  const text = element.textContent?.trim()
-  if (!text) {
+  if (element.closest("[data-text-reveal-opt-out]")) {
     return false
+  }
+
+  const hasForcedTarget = element.hasAttribute("data-text-reveal-target")
+
+  if (!hasForcedTarget) {
+    const text = element.textContent?.trim()
+    if (!text) {
+      return false
+    }
   }
 
   const styles = window.getComputedStyle(element)
@@ -102,14 +113,14 @@ export function useTextReveal() {
         return
       }
 
-      if (node.matches(TEXT_SELECTOR)) {
+      if (node.matches(TARGET_SELECTOR)) {
         registerElement(node)
       }
 
-      node.querySelectorAll(TEXT_SELECTOR).forEach(registerElement)
+      node.querySelectorAll(TARGET_SELECTOR).forEach(registerElement)
     }
 
-    document.querySelectorAll(TEXT_SELECTOR).forEach(registerElement)
+    document.querySelectorAll(TARGET_SELECTOR).forEach(registerElement)
 
     const mutationObserver = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
