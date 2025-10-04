@@ -43,8 +43,8 @@ export function ArtifactsSection() {
                     {title}
                   </h3>
                   <p className="text-base sm:text-lg leading-relaxed">{description}</p>
-                  <div className="mt-auto text-2xl sm:text-3xl font-bold" aria-label={`Price ${price}`}>
-                    {price}
+                  <div className="mt-auto" aria-label={`Price ${price}`}>
+                    <span className="block text-2xl sm:text-3xl font-bold">{price}</span>
                   </div>
                 </CardContent>
               </Card>

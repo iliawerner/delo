@@ -1,6 +1,7 @@
 import { Card, CardContent } from '@/components/ui/card.jsx'
 import { Mail, Youtube, ExternalLink } from 'lucide-react'
 import './App.css'
+import { useTextReveal } from '@/hooks/use-text-reveal.js'
 
 import { AboutSection } from '@/components/AboutSection.jsx'
 import { ArtifactsSection } from '@/components/ArtifactsSection.jsx'
@@ -12,6 +13,8 @@ import { SiteHeader } from '@/components/Header.jsx'
 import { TestimonialsSection } from '@/components/TestimonialsSection.jsx'
 
 function App() {
+  useTextReveal()
+
   return (
     <div className="app-background relative min-h-screen text-black font-mono">
       <div className="app-background__noise" aria-hidden="true" />

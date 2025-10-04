@@ -7,7 +7,7 @@ export function SiteHeader() {
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
           <div className="flex-shrink-0">
             <img
-              src="https://static.tildacdn.com/tild3361-3837-4265-a436-383139323065/photo.svg"
+              src="/photo.svg"
               alt="DELO Studio logo"
               className="h-8"
               width="128"
