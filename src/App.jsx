@@ -10,7 +10,7 @@ import { HeroSection } from '@/components/HeroSection.jsx'
 import { ResearchScopeSection } from '@/components/ResearchScopeSection.jsx'
 import { SiteFooter } from '@/components/SiteFooter.jsx'
 import { SiteHeader } from '@/components/Header.jsx'
-import { TestimonialsSection } from '@/components/TestimonialsSection.jsx'
+// import { TestimonialsSection } from '@/components/TestimonialsSection.jsx'
 
 function App() {
   useTextReveal()
@@ -30,7 +30,7 @@ function App() {
           <HeroSection />
           <ResearchScopeSection />
           <ArtifactsSection />
-          <TestimonialsSection />
+          {/* <TestimonialsSection /> */}
           <AboutSection />
           <ContactSection />
         </main>
