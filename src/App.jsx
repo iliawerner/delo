@@ -1,42 +1,62 @@
-import { Card, CardContent } from '@/components/ui/card.jsx'
-import { Mail, Youtube, ExternalLink } from 'lucide-react'
+import { useEffect } from 'react'
+import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import './App.css'
-import { useTextReveal } from '@/hooks/use-text-reveal.js'
+import { detectRussianVisitor } from '@/lib/detectRussianVisitor.js'
+import { HomePage } from '@/pages/HomePage.jsx'
+import { RuStatementPage, RU_OPT_OUT_STORAGE_KEY } from '@/pages/RuStatementPage.jsx'
 
-import { AboutSection } from '@/components/AboutSection.jsx'
-import { ArtifactsSection } from '@/components/ArtifactsSection.jsx'
-import { ContactSection } from '@/components/ContactSection.jsx'
-import { HeroSection } from '@/components/HeroSection.jsx'
-import { ResearchScopeSection } from '@/components/ResearchScopeSection.jsx'
-import { SiteFooter } from '@/components/SiteFooter.jsx'
-import { SiteHeader } from '@/components/Header.jsx'
-// import { TestimonialsSection } from '@/components/TestimonialsSection.jsx'
+function GeoRedirect() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined
+    }
+
+    const hasOptedOut = (() => {
+      try {
+        return window.sessionStorage?.getItem(RU_OPT_OUT_STORAGE_KEY) === 'true'
+      } catch {
+        return false
+      }
+    })()
+
+    if (hasOptedOut || location.pathname === '/ru') {
+      return undefined
+    }
+
+    const controller = new AbortController()
+    let cancelled = false
+
+    async function runDetection() {
+      const isRussian = await detectRussianVisitor({ signal: controller.signal })
+      if (!cancelled && isRussian) {
+        navigate('/ru', { replace: true })
+      }
+    }
+
+    runDetection()
+
+    return () => {
+      cancelled = true
+      controller.abort()
+    }
+  }, [location.pathname, navigate])
+
+  return null
+}
 
 function App() {
-  useTextReveal()
-
   return (
-    <div className="app-background relative min-h-screen text-black font-mono">
-      <div className="app-background__noise" aria-hidden="true" />
-      <div className="relative z-10 flex min-h-screen flex-col">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-black"
-        >
-          Skip to main content
-        </a>
-        <SiteHeader />
-        <main id="main-content">
-          <HeroSection />
-          <ResearchScopeSection />
-          <ArtifactsSection />
-          {/* <TestimonialsSection /> */}
-          <AboutSection />
-          <ContactSection />
-        </main>
-        <SiteFooter />
-      </div>
-    </div>
+    <BrowserRouter>
+      <GeoRedirect />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/ru" element={<RuStatementPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
