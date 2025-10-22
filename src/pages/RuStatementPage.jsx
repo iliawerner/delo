@@ -1,6 +1,9 @@
 import { SiteFooter } from '@/components/SiteFooter.jsx'
 import { SiteHeader } from '@/components/Header.jsx'
 
+import { SiteFooter } from '@/components/SiteFooter.jsx'
+import { SiteHeader } from '@/components/Header.jsx'
+
 export const RU_OPT_OUT_STORAGE_KEY = 'delo:ru-opt-out'
 
 export function RuStatementPage() {
@@ -18,10 +21,26 @@ export function RuStatementPage() {
 
         <main id="main-content" className="flex-1">
           <section className="border-b-2 border-black py-12 sm:py-16 lg:py-20">
-            <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-              <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-                Дизайн-студия DELO уничтожена.
-              </h1>
+            <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 lg:px-8 lg:flex-row lg:items-start lg:justify-between">
+              <div className="space-y-6 lg:max-w-3xl">
+                <p className="text-xs uppercase tracking-[0.3em] text-black/60">Заявление основателя студии</p>
+                <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+                  Дизайн-студия DELO уничтожена.
+                </h1>
+                <p className="text-sm leading-relaxed text-black/70">
+                  Автор: Илья Вернер, основатель и руководитель дизайн-студии DELO
+                </p>
+              </div>
+              <div className="flex flex-col items-start gap-4 lg:items-end">
+                <button
+                  type="button"
+                  onClick={handleContinue}
+                  className="inline-flex items-center justify-center border-2 border-black bg-white px-5 py-2 text-xs font-bold uppercase tracking-[0.25em] transition-colors duration-200 hover:bg-black hover:text-white"
+                >
+                  Перейти на международную версию
+                </button>
+                <p className="text-xs uppercase tracking-[0.3em] text-black/60">DELO studio</p>
+              </div>
             </div>
           </section>
 
@@ -193,6 +212,9 @@ export function RuStatementPage() {
                   </p>
                 </div>
 
+                <div className="border-t-2 border-black pt-8 text-sm leading-relaxed text-black/70">
+                  <p>Текст подготовлен Ильёй Вернером. Все факты подтверждаются документами и перепиской.</p>
+                </div>
               </article>
             </div>
           </section>
