@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import './App.css'
 import { detectRussianVisitor } from '@/lib/detectRussianVisitor.js'
 import { HomePage } from '@/pages/HomePage.jsx'
@@ -49,14 +50,16 @@ function GeoRedirect() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <GeoRedirect />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/ru" element={<RuStatementPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <GeoRedirect />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/ru" element={<RuStatementPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   )
 }
 

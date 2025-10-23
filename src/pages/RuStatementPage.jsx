@@ -1,12 +1,77 @@
+import { Helmet } from 'react-helmet-async'
 import { SiteFooter } from '@/components/SiteFooter.jsx'
 import { SiteHeader } from '@/components/Header.jsx'
 
 export const RU_OPT_OUT_STORAGE_KEY = 'delo:ru-opt-out'
 
 export function RuStatementPage() {
+  const pageUrl = 'https://iliawerner.com/delo/ru'
+  const pageTitle = 'Захват дизайн-студии DELO: история Ксении Кузнецовой (Рейда)'
+  const pageDescription = 'Рассказ основателя о захвате дизайн-студии DELO. Ксения Кузнецова (Рейда) присвоила бизнес, клиентов и материалы студии дизайна сайтов. Полная история конфликта.'
+
+  const schemaOrgArticle = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Дизайн-студия DELO уничтожена: захват бизнеса Ксенией Кузнецовой',
+    author: {
+      '@type': 'Person',
+      name: 'Илья Вернер',
+      url: 'https://iliawerner.com'
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Илья Вернер'
+    },
+    datePublished: '2025-10-23',
+    dateModified: '2025-10-23',
+    inLanguage: 'ru',
+    description: pageDescription,
+    url: pageUrl,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl
+    },
+    keywords: 'Ксения Кузнецова, Ксения Рейда, DELO, студия DELO, дизайн студия, дизайн сайтов, захват бизнеса, рейдерский захват'
+  }
 
   return (
     <div className="app-background relative min-h-screen font-mono text-black">
+      <Helmet>
+        <html lang="ru" />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={pageUrl} />
+
+        {/* Hreflang links */}
+        <link rel="alternate" hrefLang="en" href="https://iliawerner.com/delo" />
+        <link rel="alternate" hrefLang="ru" href={pageUrl} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content="DELO Studio" />
+        <meta property="article:author" content="Илья Вернер" />
+        <meta property="article:published_time" content="2025-10-23" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:creator" content="@DesignLovers" />
+
+        {/* Additional SEO meta tags */}
+        <meta name="keywords" content="Ксения Кузнецова, Ксения Рейда, DELO, студия DELO, дизайн студия, дизайн сайтов, захват бизнеса, конфликт партнеров, Яндекс, Альфа-банк, дизайн проектов" />
+        <meta name="author" content="Илья Вернер" />
+
+        {/* Schema.org structured data */}
+        <script type="application/ld+json">
+          {JSON.stringify(schemaOrgArticle)}
+        </script>
+      </Helmet>
+
       <div className="app-background__noise" aria-hidden="true" />
       <div className="relative z-10 flex min-h-screen flex-col">
         <a
@@ -21,7 +86,7 @@ export function RuStatementPage() {
           <section className="border-b-2 border-black py-12 sm:py-16 lg:py-20">
             <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
               <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-                Дизайн-студия DELO уничтожена.
+                Захват дизайн-студии DELO: история Ксении Кузнецовой (Рейда)
               </h1>
             </div>
           </section>
@@ -30,6 +95,7 @@ export function RuStatementPage() {
             <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
               <article className="space-y-12 text-base leading-relaxed">
                 <div className="space-y-6">
+                  <h2 className="text-xl font-bold">О дизайн-студии DELO и Ксении Кузнецовой (Рейда)</h2>
                   <p>
                     Ксения Кузнецова (Рейда) была уволена в июле 2025. То, что она делает сейчас, имеет признаки мошенничества,
                     присвоения и клеветы. Является ли оно этим — решит суд.
@@ -38,7 +104,7 @@ export function RuStatementPage() {
                     За этим заголовком есть история. Интересная, но грустная.
                   </p>
                   <p>
-                    Меня зовут Илья, и я основатель и руководитель дизайн-студии DELO.
+                    Меня зовут Илья Вернер, и я основатель и руководитель дизайн-студии DELO.
                   </p>
                   <p>
                     Студию DELO мы открыли в 2019 году с партнёром. Это было делом моей жизни. Следствием 15 лет работы над
@@ -125,9 +191,9 @@ export function RuStatementPage() {
                 </div>
 
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-bold uppercase tracking-tight">Ложь для клиентов</h2>
+                  <h2 className="text-2xl font-bold uppercase tracking-tight">Как Ксения Кузнецова обманула клиентов студии DELO</h2>
                   <p>
-                    Она написала нашим клиентам, что это я «отжимаю» её бизнес и занимаюсь вымогательством. Обвинила меня в том,
+                    Она написала нашим клиентам (Яндекс, Альфа-банк, Профи.ру и другим), что это я «отжимаю» её бизнес и занимаюсь вымогательством. Обвинила меня в том,
                     что я уже делал так раньше, приплетя нашего прошлого партнёра, с которым у нас, к слову, нормальные
                     отношения. Это самое страшное, потому что за 5 лет существования студии, когда я отошёл от менеджмента,
                     принимающие решения лица со стороны клиентов давно сменились, а я в менеджменте не участвовал. Поэтому то, что
@@ -141,7 +207,7 @@ export function RuStatementPage() {
                 </div>
 
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-bold uppercase tracking-tight">Ложь для друзей</h2>
+                  <h2 className="text-2xl font-bold uppercase tracking-tight">Клевета Ксении Рейда на основателя DELO</h2>
                   <p>
                     Чтобы заручиться поддержкой нашего общего круга, она исказила факты до неузнаваемости. Она рассказала, будто я
                     заставляю её отрабатывать два месяца за копейки и отказываюсь разговаривать, пока она не подпишет кабальные
@@ -150,7 +216,7 @@ export function RuStatementPage() {
                 </div>
 
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-bold uppercase tracking-tight">Ложь дизайнерам</h2>
+                  <h2 className="text-2xl font-bold uppercase tracking-tight">Как Ксения Кузнецова переманила дизайнеров</h2>
                   <p>
                     Она сначала перевела всех в новые чаты, не объяснив. Она старше других дизайнеров, поэтому они, не
                     заподозрив ничего, просто перешли в другое место работать. А потом подала всё так, будто бы конфликт
@@ -160,7 +226,7 @@ export function RuStatementPage() {
                 </div>
 
                 <div className="space-y-6">
-                  <h2 className="text-2xl font-bold uppercase tracking-tight">Ложь в сети</h2>
+                  <h2 className="text-2xl font-bold uppercase tracking-tight">Публичные заявления Ксении Кузнецовой о захвате</h2>
                   <p>
                     Публично она заявляет, что не привлекала юристов, а все клиенты и сотрудники «сами» решили остаться с ней,
                     когда я «незаконно» попытался отобрать её бизнес.
