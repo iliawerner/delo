@@ -3,6 +3,7 @@ import { ArtifactsSection } from '@/components/ArtifactsSection.jsx'
 import { ContactSection } from '@/components/ContactSection.jsx'
 import { HeroSection } from '@/components/HeroSection.jsx'
 import { ResearchScopeSection } from '@/components/ResearchScopeSection.jsx'
+import { TestimonialsSection } from '@/components/TestimonialsSection.jsx'
 import { SiteFooter } from '@/components/SiteFooter.jsx'
 import { SiteHeader } from '@/components/Header.jsx'
 import { useTextReveal } from '@/hooks/use-text-reveal.js'
@@ -25,7 +26,7 @@ export function HomePage() {
           <HeroSection />
           <ResearchScopeSection />
           <ArtifactsSection />
-          {/* <TestimonialsSection /> */}
+          <TestimonialsSection />
           <AboutSection />
           <ContactSection />
         </main>
