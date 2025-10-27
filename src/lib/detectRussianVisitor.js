@@ -1,26 +1,4 @@
 const STORAGE_KEY = 'delo:russian-visitor'
-const RUSSIAN_TIMEZONES = new Set([
-  'Europe/Kaliningrad',
-  'Europe/Moscow',
-  'Europe/Samara',
-  'Asia/Yekaterinburg',
-  'Asia/Omsk',
-  'Asia/Novosibirsk',
-  'Asia/Barnaul',
-  'Asia/Tomsk',
-  'Asia/Krasnoyarsk',
-  'Asia/Irkutsk',
-  'Asia/Chita',
-  'Asia/Yakutsk',
-  'Asia/Khandyga',
-  'Asia/Sakhalin',
-  'Asia/Magadan',
-  'Asia/Srednekolymsk',
-  'Asia/Vladivostok',
-  'Asia/Ust-Nera',
-  'Asia/Kamchatka',
-  'Asia/Anadyr',
-])
 
 function cacheResult(value) {
   if (typeof window === 'undefined') return
@@ -46,37 +24,10 @@ function getCachedResult() {
   return null
 }
 
-function hasRussianLocale() {
-  if (typeof window === 'undefined') return false
-
-  const locales = Array.isArray(navigator.languages) && navigator.languages.length > 0 ? navigator.languages : [navigator.language]
-
-  return locales.filter(Boolean).some((locale) => {
-    const normalized = locale.toLowerCase()
-    return normalized.startsWith('ru') || normalized.endsWith('-ru')
-  })
-}
-
-function hasRussianTimezone() {
-  if (typeof window === 'undefined') return false
-
-  try {
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-    return timezone ? RUSSIAN_TIMEZONES.has(timezone) : false
-  } catch {
-    return false
-  }
-}
-
 export async function detectRussianVisitor({ signal } = {}) {
   const cached = getCachedResult()
   if (cached !== null) {
     return cached
-  }
-
-  if (hasRussianLocale() || hasRussianTimezone()) {
-    cacheResult(true)
-    return true
   }
 
   if (typeof window === 'undefined' || typeof fetch !== 'function') {
